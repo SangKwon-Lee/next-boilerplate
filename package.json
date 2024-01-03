@@ -6,12 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stylelint": "stylelint '**/*.tsx' --fix"
   },
   "dependencies": {
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "styled-components": "^6.1.6"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -32,13 +34,18 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "postcss-styled-syntax": "^0.6.3",
     "prettier": "^3.1.1",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-order": "^6.0.4",
     "typescript": "*"
   },
   "lint-staged": {
     "*.{js,jsx.ts,tsx}": [
       "eslint --fix",
       "prettier --write",
+      "stylelint '**/*.tsx' --fix",
       "git add"
     ]
   }

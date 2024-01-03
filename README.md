@@ -170,3 +170,136 @@ npx husky add .husky/pre-commit "yarn lint"
     ]
   }
 ```
+
+# stylelint 설정
+
+## stylelint-config-standard
+
+styled-components 공식 홈페이지에서 추천하는 것.
+
+```
+yarn add --dev stylelint-config-standard
+```
+
+그 후
+
+```js
+{
+  "extends": ["stylelint-config-standard",]
+}
+
+```
+
+## postcss-styled-syntax
+
+styled-components 공식 홈페이지에서 추천하는 것.
+
+```
+yarn add --dev postcss-styled-syntax
+
+```
+
+그 후
+
+```js
+{
+  "extends": ["stylelint-config-standard"],
+   "customSyntax" : "postcss-styled-syntax"
+}
+```
+
+## stylelint-order
+
+style 순서 바꿔주는 것
+
+```
+yarn add --dev stylelint-order
+```
+
+```js
+{
+  "plugins": ["stylelint-order"]
+}
+```
+
+rules 예시
+
+```js
+  "rules": {
+    "declaration-empty-line-before": [
+      "always",
+      {
+        "ignore": ["after-comment", "after-declaration", "inside-single-line-block"]
+      }
+    ],
+    "order/order": ["custom-properties", "declarations"],
+    "order/properties-order": [
+      {
+        "groupName": "Layout",
+        "noEmptyLineBetween": true,
+        "properties": [
+          "display",
+          "visibility",
+          "overflow",
+          "float",
+          "clear",
+          "position",
+          "top",
+          "right",
+          "bottom",
+          "left",
+          "z-index"
+        ]
+      },
+      {
+        "groupName": "Box",
+        "emptyLineBefore": "always",
+        "noEmptyLineBetween": true,
+        "properties": [
+          "width",
+          "height",
+          "margin",
+          "margin-top",
+          "margin-right",
+          "margin-bottom",
+          "margin-left",
+          "padding",
+          "padding-top",
+          "padding-right",
+          "padding-bottom",
+          "padding-left",
+          "border"
+        ]
+      },
+      {
+        "groupName": "Background",
+        "emptyLineBefore": "always",
+        "noEmptyLineBetween": true,
+        "properties": ["background-color"]
+      },
+      {
+        "groupName": "Font",
+        "emptyLineBefore": "always",
+        "noEmptyLineBetween": true,
+        "properties": [
+          "color",
+          "font-style",
+          "font-weight",
+          "font-size",
+          "line-height",
+          "letter-spacing",
+          "text-align",
+          "text-indent",
+          "vertical-align",
+          "white-space"
+        ]
+      },
+      {
+        "groupName": "Animation",
+        "emptyLineBefore": "always",
+        "noEmptyLineBetween": true,
+        "properties": ["animation"]
+      }
+    ]
+  }
+```
