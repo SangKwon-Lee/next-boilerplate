@@ -24,9 +24,7 @@
     "simple-import-sort/imports": "error" //simple-import-sort setting
   },
   "parserOptions": {
-    "project": "./tsconfig.json",
-    "sourceType": "module",
-    "ecmaVersion": "latest"
+    "project": ["**/tsconfig.json"]
   },
-  "ignorePatterns": ["node_modules/", ".next/*", "*.js", "lib/image/loader.ts"]
+  "ignorePatterns": ["node_modules/", ".next/*", "*.js", "lib/image/loader.ts", "eslintrc.json"]
 }
